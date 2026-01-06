@@ -1,14 +1,47 @@
 "use client";
 
+import { supabase } from "@/lib/supabase/client";
 import { redirect } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false);
-    const handleSignIn = () => {
-        console.log("Clicked");
-        redirect("/dashboard")
-    }
+
+    const handleSignIn = useCallback(async () => {
+        setLoading(true);
+        try {
+            const origin = typeof window !== "undefined" ? window.location.origin : undefined;
+            console.log('Starting OAuth with origin:', origin);
+
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: origin ? `${origin}/auth/callback` : undefined,
+                    queryParams: {
+                        access_type: "offline",
+                        prompt: "consent",
+                    },
+                    scopes: [
+                        "https://www.googleapis.com/auth/calendar.readonly",
+                        "https://www.googleapis.com/auth/gmail.send",
+                    ].join(" "),
+                },
+            });
+
+            console.log('OAuth response:', { data, error });
+
+            if (error) {
+                console.error('OAuth error:', error);
+                throw error;
+            }
+        } catch (err) {
+            console.error('Sign in error:', err);
+            // eslint-disable-next-line no-alert
+            alert((err as Error)?.message ?? "OAuth error");
+        } finally {
+            setLoading(false);
+        }
+    }, []);
 
     return (
         <main className="min-h-dvh flex items-center justify-center p-6">

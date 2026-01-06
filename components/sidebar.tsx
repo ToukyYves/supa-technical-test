@@ -14,6 +14,7 @@ import {
     X
 } from "lucide-react";
 import { Button } from "./ui/button";
+import { SignOutButton } from "./signout-button";
 
 const navigation = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -70,7 +71,7 @@ export function Sidebar() {
                             );
                         })}
                         <div className="border-t p-4">
-                            <Button type="submit">Logout</Button>
+                            <SignOutButton />
                         </div>
                     </nav>
                 </div>
