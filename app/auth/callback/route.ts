@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSupabase } from "@/lib/supabase/server";
-import { AuthTokensService } from "@/sercices/auth-service";
+import { AuthTokensService } from "@/services/auth-service";
 
 export async function GET(request: NextRequest) {
     const supabase = await getServerSupabase();
