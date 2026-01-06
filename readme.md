@@ -122,6 +122,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+
+## Screenshots of the application
+
+   
+   ![Login page](screenshots/01.png) 
+   ![Login with google](screenshots/02.png) 
+   ![Login with google](screenshots/03.png) 
+   ![Login with google](screenshots/04.png) 
+   ![dashboard page](screenshots/05.png) 
+   ![client page](screenshots/06.png) 
+   ![all google agenda data](screenshots/07.png) 
+   ![sending email](screenshots/08.png) 
+   ![custom template](screenshots/09.png) 
+
 ## 📊 Database Schema
 
 ### Clients Table
@@ -299,3 +313,4 @@ This project is licensed under the MIT License.
 - Check that refresh tokens are being stored
 - Ensure Google OAuth is configured for offline access
 - Monitor token expiration in user_tokens table
+
