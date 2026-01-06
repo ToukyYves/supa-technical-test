@@ -4,10 +4,8 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { thisWeekRange, thisMonthRange, todayRange, type Range } from "@/lib/date/range";
 import { DashboardLayout } from "@/components/dashboard-layout";
-import { CalendarEvent } from "@/lib/types/types";
+import { CalendarEvent, FilterKey } from "@/lib/types/types";
 
-
-type FilterKey = "today" | "week" | "month" | "custom7";
 
 function buildRange(key: FilterKey): Range {
   switch (key) {
