@@ -217,9 +217,9 @@ export default function TemplatesPage() {
                         type="button"
                         className="rounded-md border px-3 py-1.5 text-sm hover:bg-red-50 text-red-600"
                         onClick={() => deleteMut.mutate(template.id)}
-                        disabled={deleteMut.isPending}
+                        disabled={deleteMut.isPending && deleteMut.variables === template.id}
                       >
-                        {deleteMut.isPending ? "Deleting…" : "Delete"}
+                        {deleteMut.isPending && deleteMut.variables === template.id ? "Deleting…" : "Delete"}
                       </button>
                     </div>
                   </div>
