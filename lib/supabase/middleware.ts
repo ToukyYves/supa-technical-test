@@ -40,9 +40,6 @@ export async function updateSession(request: NextRequest) {
 
   const user = data?.claims
 
-  console.log("========");
-  console.log(user);
-  console.log("========");
 
   if (
     !user &&
