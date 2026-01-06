@@ -13,15 +13,14 @@ import {
     Menu,
     X
 } from "lucide-react";
-import { Button } from "./ui/button";
 import { SignOutButton } from "./signout-button";
 
 const navigation = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Clients", href: "/clients", icon: Users },
-    { name: "Calendar", href: "/calendar", icon: Calendar },
-    { name: "Emails", href: "/emails", icon: Mail },
-    { name: "Templates", href: "/templates", icon: FileText },
+    { name: "Clients", href: "/dashboard/clients", icon: Users },
+    { name: "Calendar", href: "/dashboard/calendar", icon: Calendar },
+    { name: "Emails", href: "/dashboard/emails", icon: Mail },
+    { name: "Templates", href: "/dashboard/templates", icon: FileText },
 ];
 
 export function Sidebar() {
