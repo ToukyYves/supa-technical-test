@@ -8,3 +8,11 @@ export type Client = {
     created_at: string;
     updated_at: string;
 };
+
+export type CalendarEvent = {
+    id: string;
+    summary?: string | null;
+    description?: string | null;
+    start: string | null;
+    end: string | null;
+  };
