@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSupabase } from "@/lib/supabase/server";
 import { sendEmailSchema } from "@/lib/zod/email";
-import { GmailService, SendResult } from "@/services/gmail";
+import { GmailService } from "@/services/gmail";
+import { SendResult } from "@/lib/types/types";
 
 export async function POST(request: NextRequest) {
     try {
