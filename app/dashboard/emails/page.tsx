@@ -99,7 +99,6 @@ export default function EmailsPage() {
     const canSend = selectedEmails.length > 0 && subject.trim().length > 0 && body.trim().length > 0;
 
     return (
-        <DashboardLayout>
             <div className="space-y-6">
                 <header className="flex items-center justify-between">
                     <h1 className="text-2xl font-semibold text-gray-900">Send Emails</h1>
@@ -239,6 +238,5 @@ export default function EmailsPage() {
                     </section>
                 )}
             </div>
-        </DashboardLayout>
     );
 }

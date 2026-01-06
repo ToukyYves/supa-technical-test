@@ -2,8 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { thisWeekRange, thisMonthRange, todayRange, type Range } from "@/lib/date/range";
-import { DashboardLayout } from "@/components/dashboard-layout";
+import { thisWeekRange, thisMonthRange, todayRange, Range } from "@/lib/date/range";
 import { CalendarEvent, FilterKey } from "@/lib/types/types";
 
 
@@ -42,31 +41,30 @@ export default function CalendarPage() {
   const events = query.data?.data ?? [];
 
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
-        <header className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-gray-900">Calendar</h1>
-          <div className="flex items-center gap-2">
-            <select
-              className="border rounded-md px-2 py-1"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value as FilterKey)}
-            >
-              <option value="today">Today</option>
-              <option value="week">This week</option>
-              <option value="month">This month</option>
-              <option value="custom7">Next 7 days</option>
-            </select>
-            <button
-              type="button"
-              onClick={() => query.refetch()}
-              className="rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-60"
-              disabled={query.isFetching}
-            >
-              {query.isFetching ? "Refreshing…" : "Refresh"}
-            </button>
-          </div>
-        </header>
+    <div className="space-y-6">
+      <header className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold text-gray-900">Calendar</h1>
+        <div className="flex items-center gap-2">
+          <select
+            className="border rounded-md px-2 py-1"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value as FilterKey)}
+          >
+            <option value="today">Today</option>
+            <option value="week">This week</option>
+            <option value="month">This month</option>
+            <option value="custom7">Next 7 days</option>
+          </select>
+          <button
+            type="button"
+            onClick={() => query.refetch()}
+            className="rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-60"
+            disabled={query.isFetching}
+          >
+            {query.isFetching ? "Refreshing…" : "Refresh"}
+          </button>
+        </div>
+      </header>
 
       {query.isLoading ? (
         <p className="text-sm text-gray-600">Loading events…</p>
@@ -89,7 +87,6 @@ export default function CalendarPage() {
           ))}
         </ul>
       )}
-      </div>
-    </DashboardLayout>
+    </div>
   );
 }
