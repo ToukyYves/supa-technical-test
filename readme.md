@@ -245,16 +245,27 @@ Best regards
 
 ## 🧪 Testing
 
+The project uses **Vitest** as the test runner with React Testing Library for component testing.
+
 ```bash
-# Run unit tests
-npm run test
+# Run all tests
+npm test
 
 # Run tests in watch mode
 npm run test:watch
 
-# Run tests with coverage
+# Run tests with UI interface
+npm run test:ui
+
+# Run tests with coverage report
 npm run test:coverage
 ```
+
+### Test Structure
+- Comprehensive unit tests for all major components
+- Integration tests for API endpoints
+- Mock implementations for external services (Supabase, Google APIs)
+- Coverage reporting and CI/CD integration
 
 ## 📝 API Endpoints
 
