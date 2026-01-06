@@ -257,9 +257,9 @@ export default function ClientsPage() {
                                             <button
                                                 className="rounded-md border px-2 py-1 text-sm"
                                                 onClick={() => deleteMut.mutate(c.id)}
-                                                disabled={deleteMut.isPending}
+                                                disabled={deleteMut.isPending && deleteMut.variables === c.id}
                                             >
-                                                {deleteMut.isPending ? "Deleting…" : "Delete"}
+                                                {deleteMut.isPending && deleteMut.variables === c.id ? "Deleting…" : "Delete"}
                                             </button>
                                         </div>
                                     </div>
